@@ -1,0 +1,405 @@
+/* style.css */
+
+/*
+ * -------------------------------------------------------------------
+ * PALETA DE CORES E VARIÁVEIS
+ * -------------------------------------------------------------------
+ */
+:root {
+    --primary-green: #66BB6A;
+    --secondary-green: #43A047;
+    --primary-blue: #29B6F6;
+    --secondary-blue: #03A9F4;
+    --light-gray: #F5F5F5;
+    --medium-gray: #757575; /* Cinza um pouco mais escuro para melhor legibilidade */
+    --dark-gray: #212121;   /* Preto mais suave para texto principal */
+    --white: #FFFFFF;
+    --error-red: #E53935;
+
+    /* Tipografia base */
+    --base-font-family: 'Open Sans', sans-serif;
+    --base-font-size: 16px;
+    --base-line-height: 1.6;
+
+    /* Espaçamento */
+    --spacing-unit: 1rem;
+    --spacing-small: calc(0.5 * var(--spacing-unit));
+    --spacing-medium: var(--spacing-unit);
+    --spacing-large: calc(2 * var(--spacing-unit));
+
+    /* Bordas */
+    --border-radius: 8px;
+    --border-width: 1px;
+    --border-color: var(--medium-gray);
+
+    /* Sombras */
+    --box-shadow-small: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --box-shadow-large: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+    /* Transições */
+    --transition-duration: 0.3s;
+    --transition-easing: ease-in-out;
+}
+
+/*
+ * -------------------------------------------------------------------
+ * RESET E ESTILOS BASE
+ * -------------------------------------------------------------------
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--base-font-family);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: var(--spacing-large) auto;
+    padding: var(--spacing-medium);
+    overflow: hidden;
+}
+
+/*
+ * -------------------------------------------------------------------
+ * TIPOGRAFIA
+ * -------------------------------------------------------------------
+ */
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-unit);
+}
+
+h1 {
+    font-size: 2.8em;
+    color: var(--primary-green);
+}
+
+h2 {
+    font-size: 2.2em;
+    color: var(--secondary-green);
+    border-bottom: 3px solid var(--secondary-green);
+    padding-bottom: calc(0.5 * var(--spacing-unit));
+    margin-bottom: calc(1.5 * var(--spacing-unit));
+}
+
+h3 {
+    font-size: 1.8em;
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-unit);
+}
+
+p.lead {
+    font-size: 1.15em;
+    color: var(--medium-gray);
+    margin-bottom: calc(1.5 * var(--spacing-unit));
+    font-weight: 400;
+}
+
+strong.subtitle {
+    display: block;
+    color: var(--primary-green);
+    margin-top: calc(1.5 * var(--spacing-unit));
+    margin-bottom: calc(0.5 * var(--spacing-unit));
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+/*
+ * -------------------------------------------------------------------
+ * CABEÇALHO GERAL
+ * -------------------------------------------------------------------
+ */
+header {
+    color: var(--white);
+    padding: calc(6 * var(--spacing-unit)) 0 calc(4 * var(--spacing-unit)) 0;
+    text-align: center;
+    background-size: cover;
+    background-position: top center;
+    box-shadow: var(--box-shadow-large);
+}
+
+header h1 {
+    font-size: 3.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: calc(0.5 * var(--spacing-unit));
+}
+
+header p {
+    font-size: 1.5em;
+    font-weight: 300;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * CABEÇALHO ESPECÍFICO PARA A PÁGINA INICIAL
+ * -------------------------------------------------------------------
+ */
+.header-index {
+    background-image: url('/static/images/header-index.jpg'); /* Imagem específica para a página inicial */
+}
+
+/*
+ * -------------------------------------------------------------------
+ * CABEÇALHO ESPECÍFICO PARA A PÁGINA DE ESCOLAS
+ * -------------------------------------------------------------------
+ */
+.header-escolas {
+    background-image: url('/static/images/header-escolas.jpg'); /* Imagem específica para a página de escolas */
+}
+
+/*
+ * -------------------------------------------------------------------
+ * CABEÇALHO ESPECÍFICO PARA A PÁGINA DE AGRICULTORES
+ * -------------------------------------------------------------------
+ */
+.header-agricultores {
+    background-image: url('/static/images/header-agricultores.jpg'); /* Imagem específica para a página de agricultores */
+}
+/*
+ * -------------------------------------------------------------------
+ * SEÇÕES
+ * -------------------------------------------------------------------
+ */
+.section {
+    background-color: var(--white);
+    padding: calc(4 * var(--spacing-unit));
+    margin-bottom: calc(3 * var(--spacing-unit));
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-medium);
+    border: var(--border-width) solid var(--border-color);
+}
+
+.section h3 { /* Títulos dentro das seções (Para Escolas, Para Agricultores) */
+    color: var(--primary-blue);
+}
+
+.section ul li { /* Itens das listas dentro das seções */
+    color: var(--dark-gray); /* Garante texto escuro para legibilidade */
+}
+
+.section ul li i { /* Ícones das listas */
+    margin-right: var(--spacing-medium);
+    color: var(--primary-green);
+    font-size: 1.6em;
+}
+
+/*
+ * -------------------------------------------------------------------
+ * BOTÕES
+ * -------------------------------------------------------------------
+ */
+.button {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: calc(0.75 * var(--spacing-unit)) calc(2 * var(--spacing-unit));
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    margin-top: calc(2 * var(--spacing-unit));
+    font-weight: 600;
+    transition: background-color var(--transition-duration) var(--transition-easing),
+                transform var(--transition-duration) var(--transition-easing),
+                box-shadow var(--transition-duration) var(--transition-easing);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.button:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-large);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * CALL TO ACTION
+ * -------------------------------------------------------------------
+ */
+.call-to-action {
+    text-align: center;
+    margin-top: calc(4 * var(--spacing-unit));
+    margin-bottom: calc(3 * var(--spacing-unit));
+}
+
+.call-to-action h3 {
+    color: var(--primary-blue);
+    font-size: 2.6em;
+    margin-bottom: calc(1.5 * var(--spacing-unit));
+}
+
+.call-to-action .button {
+    margin: var(--spacing-small);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * FORMULÁRIOS
+ * -------------------------------------------------------------------
+ */
+.form-container {
+    margin-top: calc(3 * var(--spacing-unit));
+    padding: calc(2 * var(--spacing-unit));
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    border: var(--border-width) solid var(--border-color);
+    box-shadow: var(--box-shadow-small);
+}
+
+.form-group {
+    margin-bottom: calc(1.5 * var(--spacing-unit));
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: calc(0.5 * var(--spacing-unit));
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: calc(0.75 * var(--spacing-unit));
+    border: var(--border-width) solid var(--medium-gray);
+    border-radius: calc(0.5 * var(--border-radius));
+    box-sizing: border-box;
+    font-size: 1em;
+    color: var(--dark-gray);
+}
+
+.form-group textarea {
+    min-height: 150px;
+}
+
+.form-group button[type="submit"] {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: calc(0.75 * var(--spacing-unit)) calc(2 * var(--spacing-unit));
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color var(--transition-duration) var(--transition-easing),
+                box-shadow var(--transition-duration) var(--transition-easing);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: var(--secondary-green);
+    box-shadow: var(--box-shadow-large);
+}
+
+.error-message {
+    color: var(--error-red);
+    font-size: 0.9em;
+    margin-top: var(--spacing-small);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * RODAPÉ
+ * -------------------------------------------------------------------
+ */
+footer {
+    text-align: center;
+    padding: calc(3 * var(--spacing-unit)) 0;
+    background-color: var(--dark-gray);
+    color: var(--white);
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: var(--spacing-small) 0;
+    opacity: 0.8;
+}
+
+footer a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color var(--transition-duration) var(--transition-easing);
+}
+
+footer a:hover {
+    color: var(--secondary-blue);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * UTILITÁRIOS
+ * -------------------------------------------------------------------
+ */
+.text-center {
+    text-align: center;
+}
+
+.mt-large {
+    margin-top: var(--spacing-large);
+}
+
+.mb-large {
+    margin-bottom: var(--spacing-large);
+}
+
+/*
+ * -------------------------------------------------------------------
+ * RESPONSIVIDADE
+ * -------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin-top: var(--spacing-medium) auto;
+        margin-bottom: var(--spacing-medium) auto;
+        padding: var(--spacing-small);
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .section {
+        padding: var(--spacing-large);
+        margin-bottom: var(--spacing-large);
+    }
+}
+
+/*
+ * -------------------------------------------------------------------
+ * LEGIBILIDADE APRIMORADA PARA SEÇÕES
+ * -------------------------------------------------------------------
+ */
+.section {
+    color: var(--dark-gray); /* Garante que o texto padrão da seção seja escuro */
+}
+
+.section h3 {
+    color: var(--primary-blue); /* Mantém a cor azul para os títulos das seções */
+}
+
+.section ul li {
+    color: var(--dark-gray); /* Garante que os itens da lista sejam legíveis */
+}
