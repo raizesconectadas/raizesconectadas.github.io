@@ -4,9 +4,50 @@ from wtforms import StringField, EmailField, TelField, TextAreaField, SubmitFiel
 from wtforms.validators import DataRequired, Length, Email
 from flask_wtf.csrf import CSRFProtect
 
+# Importações para o banco de dados
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+import os # Importar para usar variáveis de ambiente
+
+app = Flask(_name_)
+
+# --- Configurações do Aplicativo ---
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'A7X2B9L5Q3V8D1M6Y4T0R7J5CX7B2L9Q5V1D8M3Y4T6R0J'  # **Coloque o codigo secreto aqui!**
 csrf = CSRFProtect(app)
+
+# --- Configuração do Banco de Dados PostgreSQL ---
+# credenciais postgresql
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://raizes_user:1997xf11ASDF@localhost:5432/raizes_conectadas_db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False # Desativa o rastreamento de modificações do SQLAlchemy (consome menos memória)
+
+db = SQLAlchemy(app) # Inicializa o SQLAlchemy
+migrate = Migrate(app, db) # Inicializa o Flask-Migrate
+
+# --- Definição dos Formulários (Flask-WTF) ---
+class CadastroEscolaForm(FlaskForm):
+    nome_escola = StringField('Nome da Escola', validators=[DataRequired(), Length(max=100)])
+    cnpj = StringField('CNPJ', validators=[DataRequired(), Length(min=14, max=18)])
+    endereco = StringField('Endereço', validators=[DataRequired(), Length(max=200)])
+    responsavel = StringField('Nome do Responsável', validators=[DataRequired(), Length(max=100)])
+    email = EmailField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    telefone = TelField('Telefone', validators=[DataRequired(), Length(min=10, max=15)])
+    mensagem = TextAreaField('Mensagem Adicional')
+    submit = SubmitField('Cadastrar Escola')
+
+class CadastroAgricultorForm(FlaskForm):
+    nome_propriedade = StringField('Nome da Propriedade', validators=[DataRequired(), Length(max=100)])
+    cpf_cnpj = StringField('CPF/CNPJ', validators=[DataRequired(), Length(min=11, max=18)]) # Ajustei min para CPF
+    endereco = StringField('Endereço', validators=[DataRequired(), Length(max=200)])
+    responsavel = StringField('Nome do Responsável', validators=[DataRequired(), Length(max=100)])
+    email = EmailField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    telefone = TelField('Telefone', validators=[DataRequired(), Length(min=10, max=15)])
+    produtos = StringField('Produtos Ofertados (ex: frutas, verduras, ovos)', validators=[DataRequired(), Length(max=200)])
+    certificacao = StringField('Certificações (ex: Orgânico, Agroecológico)', validators=[Length(max=100)])
+    mensagem = TextAreaField('Mensagem Adicional')
+    submit = SubmitField('Cadastrar Produção')
+
 
 class CadastroEscolaForm(FlaskForm):
     nome_escola = StringField('Nome da Escola', validators=[DataRequired(), Length(max=100)])
