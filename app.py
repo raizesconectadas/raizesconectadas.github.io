@@ -9,12 +9,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os # Importar para usar variáveis de ambiente
 
-app = Flask(_name_)
-
 # --- Configurações do Aplicativo ---
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'A7X2B9L5Q3V8D1M6Y4T0R7J5CX7B2L9Q5V1D8M3Y4T6R0J'  # **Coloque o codigo secreto aqui!**
+app.config['SECRET_KEY'] = 'A7X2B9L5Q3V8D1M6Y4T0R7J5CX7B2L9Q5V1D8M3Y4T6R0J' # **Coloque o codigo secreto aqui!**
 csrf = CSRFProtect(app)
 
 # --- Configuração do Banco de Dados PostgreSQL ---
@@ -56,7 +54,7 @@ class Agricultor(db.Model):
     certificacao = db.Column(db.String(100))
     mensagem = db.Column(db.Text) # Use Text para mensagens mais longas
 
-    def _repr_(self):
+    def __repr__(self):
         return f'<Agricultor {self.nome_propriedade}>'
 
 
@@ -152,7 +150,7 @@ def cadastro_agricultor():
 def cadastro_sucesso():
     return render_template('cadastro_sucesso.html')
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     # REMOVIDO: db.create_all() - Com o Flask-Migrate, não criamos mais as tabelas aqui.
     # Elas serão criadas pelos comandos de migração no terminal.
     app.run(debug=True)
