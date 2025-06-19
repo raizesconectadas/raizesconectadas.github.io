@@ -3,39 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raízes Conectadas - Escolas</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7gOmDdwdczzjIJ1hPWUyCGQjNHMemfGvXDnUk9gQqi2XzvRYlYs+g+ERmP+vv0W37GbqGBQv+XXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Raízes Conectadas - Sua Escola Conectada!</title> <link rel="stylesheet" href="/static/css/style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7gOmDdwdczzjIJ1hPWUyCGQjNHMemfGvXDnUk9gQqi2XzvRYlYs+g+ERmP+vv0W37GbqGBQv+XXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header class="header-escolas">
-        <h1>Raízes Conectadas - Escolas</h1>
-        <p>Conectando escolas a alimentos frescos e nutritivos da agricultura local.</p>
+        <h1>Raízes Conectadas: Merenda Escolar de Verdade!</h1> <p>Conectando sua escola a alimentos frescos, nutritivos e direto da agricultura local. Qualidade garantida para nossos pequenos!</p>
     </header>
 
     <div class="container">
         <section class="section">
-            <h2>Benefícios Exclusivos para as Escolas</h2>
-             <img src="/static/images/criancas_merenda.jpeg" alt="Crianças saudáveis comendo merenda escolar" style="width: 100%; max-width: 500px; height: auto; display: block; margin: 25px auto; border-radius: 10px;">
-            <p class="lead">Transforme a experiência da merenda escolar com uma plataforma que coloca a qualidade e a origem dos alimentos em primeiro lugar.</p>
+            <h2>Benefícios Exclusivos que Sua Escola Vai Amar!</h2> <img src="/static/images/criancas_merenda.jpg" alt="Crianças saudáveis e felizes comendo merenda escolar fresca" style="width: 100%; max-width: 500px; height: auto; display: block; margin: 25px auto; border-radius: 10px; /* Um toque arredondado sempre agrada! */">
+            <p class="lead">Transforme a experiência da merenda escolar da sua instituição com uma plataforma que coloca a **qualidade**, a **origem** e o **carinho** pelos alimentos em primeiro lugar. Seus alunos merecem o melhor!</p>
             <ul>
-                <li><i class="fas fa-leaf"></i>Acesso direto a produtos frescos, orgânicos e da época, cultivados por produtores da sua região.</li>
-                <li><i class="fas fa-handshake"></i>Construa relacionamentos transparentes e de confiança com os fornecedores locais.</li>
-                <li><i class="fas fa-chart-line"></i>Otimize seu processo de compra, tornando-o mais eficiente e econômico.</li>
-                <li><i class="fas fa-seedling"></i>Contribua para a sustentabilidade e o fortalecimento da agricultura familiar.</li>
+                <li><i class="fas fa-leaf"></i> Acesso direto a produtos frescos, muitas vezes orgânicos, e sempre da estação, cultivados pelos produtores da sua própria região. Fresquinho de verdade!</li>
+                <li><i class="fas fa-handshake"></i> Construa relacionamentos transparentes, diretos e de muita confiança com os fornecedores locais. Sem intermediários, é mais fácil!</li>
+                <li><i class="fas fa-chart-line"></i> Otimize todo o seu processo de compra, tornando-o muito mais eficiente, econômico e sem dor de cabeça.</li>
+                <li><i class="fas fa-seedling"></i> Contribua ativamente para a sustentabilidade do meio ambiente e o fortalecimento da nossa agricultura familiar. É um impacto duplo!</li>
             </ul>
-            <strong class="subtitle">Um Futuro Mais Nutritivo Começa Aqui:</strong>
-            <p>Ofereça aos seus alunos uma alimentação que nutre o corpo e a mente, apoiando um futuro mais saudável e consciente.</p>
+            <strong class="subtitle">Um Futuro Mais Nutritivo e Consciente Começa Aqui, na sua escola!</strong>
+            <p>Ofereça aos seus alunos uma alimentação que nutre não só o corpo, mas também a mente, apoiando um futuro mais saudável, consciente e conectado com as raízes do nosso país.</p>
         </section>
 
         <section class="section">
-            <h2>Cadastre sua Escola</h2>
-            <p class="lead">Faça parte da rede Raízes Conectadas e comece a transformar a merenda escolar da sua instituição.</p>
+            <h2>Pronto para Cadastrar Sua Escola? É rapidinho!</h2> <p class="lead">Faça parte da nossa rede Raízes Conectadas e comece hoje mesmo a transformar a merenda escolar da sua instituição. Juntos, fazemos a diferença!</p>
             <form method="POST" action="/cadastro_escola">
                 {{ form_escola.csrf_token }}
+
                 <div class="form-group">
-                    <label for="nome_escola">Nome da Escola:</label>
-                    <input type="text" id="nome_escola" name="nome_escola" required>
+                    <label for="nome_escola">Nome Completo da Escola:</label>
+                    <input type="text" id="nome_escola" name="nome_escola" required placeholder="Ex: E.M. Prof. Maria da Silva">
                     {% if form_escola.nome_escola.errors %}
                         {% for error in form_escola.nome_escola.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -43,8 +39,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="cnpj">CNPJ:</label>
-                    <input type="text" id="cnpj" name="cnpj" required>
+                    <label for="cnpj">CNPJ da Instituição:</label>
+                    <input type="text" id="cnpj" name="cnpj" required placeholder="Apenas os números, por favor.">
                     {% if form_escola.cnpj.errors %}
                         {% for error in form_escola.cnpj.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -52,8 +48,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" id="endereco" name="endereco" required>
+                    <label for="endereco">Endereço Completo da Escola:</label>
+                    <input type="text" id="endereco" name="endereco" required placeholder="Rua, número, bairro, cidade, estado...">
                     {% if form_escola.endereco.errors %}
                         {% for error in form_escola.endereco.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -61,8 +57,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="responsavel">Nome do Responsável:</label>
-                    <input type="text" id="responsavel" name="responsavel" required>
+                    <label for="responsavel">Nome do Responsável Legal (diretor(a) ou coordenador(a)):</label>
+                    <input type="text" id="responsavel" name="responsavel" required placeholder="Nome completo de quem está cadastrando">
                     {% if form_escola.responsavel.errors %}
                         {% for error in form_escola.responsavel.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -70,8 +66,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Seu Melhor E-mail (pra gente entrar em contato com a escola):</label>
+                    <input type="email" id="email" name="email" required placeholder="contato@suaescola.com.br">
                     {% if form_escola.email.errors %}
                         {% for error in form_escola.email.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -79,8 +75,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" required>
+                    <label for="telefone">Telefone/WhatsApp da Escola (com DDD, por favor):</label>
+                    <input type="tel" id="telefone" name="telefone" required placeholder="(XX) XXXX-XXXX">
                     {% if form_escola.telefone.errors %}
                         {% for error in form_escola.telefone.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -88,8 +84,8 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <label for="mensagem">Mensagem Adicional:</label>
-                    <textarea id="mensagem" name="mensagem"></textarea>
+                    <label for="mensagem">Alguma mensagem adicional ou dúvida?</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Conte-nos o que sua escola busca, ou se tiver alguma pergunta!"></textarea>
                     {% if form_escola.mensagem.errors %}
                         {% for error in form_escola.mensagem.errors %}
                             <span class="error-message">{{ error }}</span>
@@ -97,18 +93,22 @@
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="button">Cadastrar Escola</button>
-                </div>
+                    <button type="submit" class="button">Enviar Cadastro da Minha Escola!</button> </div>
             </form>
         </section>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles Alves</p>
-            <p>Conectando o campo à mesa, nutrindo o futuro.</p>
-            <p><a href="/sobre" style="color: white; text-decoration: none;">Sobre o Projeto</a> | <a href="/contato" style="color: white; text-decoration: none;">Contato</a></p>
-            <p><a href="/index.html" style="color: white; text-decoration: none;">Voltar à Página Inicial</a></p>
+            <p>&copy; 2025 Raízes Conectadas - Um projeto feito com carinho pelo CETI Lucas Meireles Alves.</p> <p>Conectando o campo à mesa, nutrindo o futuro. Simples assim!</p> <p>
+                <a href="/sobre.html" style="color: var(--white); text-decoration: none;">Sobre o Projeto</a>
+                |
+                <a href="/contato.html" style="color: var(--white); text-decoration: none;">Fale Conosco</a>
+            </p>
+            ---
+            <p>
+                <a href="/index.html" class="button" style="background-color: var(--secondary-blue); color: var(--white); text-decoration: none; padding: 8px 15px; border-radius: 5px; display: inline-block; margin-top: 15px;">Voltar pra Página Inicial</a>
+                </p>
         </div>
     </footer>
 
