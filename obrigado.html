@@ -3,21 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obrigado!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Uhuu! Cadastro Enviado - Raízes Conectadas</title> <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7gOmDdwdczzjIJ1hPWUyCGQjNHMemfGvXDnUk9gQqi2XzvRYlYs+g+ERmP+vv0W37GbqGBQv+XXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <h1>Raízes Conectadas</h1>
-    </header>
-    <main>
-        <section id="agradecimento">
-            <h2>Obrigado pelo seu interesse!</h2>
-            <p>Agradecemos o seu cadastro. Em breve, entraremos em contato com mais informações sobre o desenvolvimento da plataforma "Raízes Conectadas".</p>
-        </section>
+    <header class="header-agradecimento"> <h1>Raízes Conectadas: Agradecemos de Coração!</h1> <p>Sua parceria é fundamental para o nosso projeto!</p> </header>
+
+    <main class="container"> <section id="agradecimento" style="text-align: center; padding: 40px 20px; /* Um padding pra não ficar muito colado */">
+            <i class="fas fa-check-circle" style="font-size: 5em; color: var(--primary-blue); margin-bottom: 20px; /* Um ícone grande e chamativo para o sucesso! */"></i>
+            <h2>Recebemos seu Cadastro! Muito Obrigado!</h2> <p class="lead" style="font-size: 1.2em; line-height: 1.6; margin-bottom: 30px;">
+                Agradecemos demais o seu interesse e por se juntar à nossa causa.
+                Sua iniciativa é um passo importante para fortalecer a agricultura familiar e nutrir nossas escolas.
+                Em breve, nossa equipe entrará em contato com você, com mais detalhes e novidades sobre o desenvolvimento da plataforma "Raízes Conectadas".
+                Fique de olho no seu e-mail!
+            </p>
+            <p style="font-style: italic; color: #555;">(Às vezes pode levar um pouquinho de tempo, mas prometemos que entraremos!) 😉</p> <a href="{{ url_for('index') }}" class="button" style="background-color: var(--secondary-blue); color: var(--white); text-decoration: none; padding: 12px 25px; border-radius: 5px; font-size: 1.1em; display: inline-block; margin-top: 40px;">
+                Voltar para a Página Inicial <i class="fas fa-home" style="margin-left: 8px;"></i> </a>
+            </section>
     </main>
+
     <footer>
-        <p>&copy; 2025 Raízes Conectadas</p>
+        <div class="container">
+            <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles Alves. Juntos, cultivamos um futuro melhor!</p> <p>Conectando o campo à mesa, nutrindo o futuro. Simples, justo e direto!</p> <p>
+                <a href="{{ url_for('sobre') }}" style="color: var(--white); text-decoration: none;">Sobre o Projeto</a>
+                |
+                <a href="{{ url_for('contato') }}" style="color: var(--white); text-decoration: none;">Fale Conosco</a>
+            </p>
+            </div>
     </footer>
-</body>
+
+    </body>
 </html>
