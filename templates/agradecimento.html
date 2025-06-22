@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Enviado - Raízes Conectadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header-agradecimento">
+        <h1>Raízes Conectadas: Agradecemos!</h1>
+        <p>Sua participação é fundamental para o nosso projeto!</p>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <section id="agradecimento" class="section">
+            <i class="fas fa-check-circle agradecimento-icon"></i>
+            <h2>Cadastro Recebido com Sucesso!</h2>
+            <p>
+                Que bom que você se conectou com a gente! Seu cadastro foi recebido com sucesso.
+                Isso é um passo importante para fortalecer a agricultura familiar e nutrir nossas escolas.
+                Em breve, nossa equipe entrará em contato com você, com mais detalhes e novidades sobre o desenvolvimento da plataforma "Raízes Conectadas".
+                Fique de olho no seu e-mail!
+            </p>
+
+            {% if tipo_cadastro == 'Agricultor' %}
+                <h3>Detalhes do seu Cadastro de Agricultor:</h3>
+                <p><strong>Nome:</strong> {{ nome_usuario }}</p>
+                <p><strong>Email:</strong> {{ email_usuario }}</p>
+                <p><strong>Telefone:</strong> {{ telefone_usuario }}</p>
+                <p><strong>Produção Principal:</strong> {{ producao_info }}</p>
+                {% if mensagem_usuario %}
+                    <p><strong>Sua Mensagem:</strong> {{ mensagem_usuario }}</p>
+                {% endif %}
+            {% elif tipo_cadastro == 'Escola' %}
+                <h3>Detalhes do seu Cadastro de Escola:</h3>
+                <p><strong>Nome da Escola:</strong> {{ nome_instituicao }}</p>
+                <p><strong>Endereço:</strong> {{ endereco_instituicao }}</p>
+                <p><strong>Email:</strong> {{ email_instituicao }}</p>
+                <p><strong>Telefone:</strong> {{ telefone_instituicao }}</p>
+                {% if mensagem_instituicao %}
+                    <p><strong>Sua Mensagem:</strong> {{ mensagem_instituicao }}</p>
+                {% endif %}
+            {% else %}
+                <p>(Pode levar um tempinho, mas entraremos em contato!) 😉</p>
+            {% endif %}
+            <a href="{{ url_for('index') }}" class="button mt-large">
+                Voltar para a Página Inicial <i class="fas fa-home" style="margin-left: 8px;"></i>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles Alves. Juntos, cultivamos um futuro melhor!</p>
+            <p>Conectando o campo à mesa, nutrindo o futuro. Simples, justo e direto!</p>
+            <p>
+                <a href="{{ url_for('sobre') }}">Sobre o Projeto</a>
+                |
+                <a href="{{ url_for('contato') }}">Fale Conosco</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

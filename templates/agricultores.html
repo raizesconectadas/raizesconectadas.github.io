@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes Conectadas - Para Nossos Agricultores!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7gOmDdwdczzjIJ1hPWUyCGQjNHMemfGvXDnUk9gQqi2XzvRYlYs+g+ERmP+vv0W37GbqGBQv+XXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="header-agricultores">
+        <h1>Raízes Conectadas: Valorizando Quem Planta!</h1>
+        <p>Aqui, a gente mostra o valor do trabalho dos agricultores familiares e a riqueza dos seus produtos.</p>
+    </header>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <section class="section">
+            <h2>Oportunidades que Fazem a Roça Florescer!</h2>
+            <div class="image-placeholder">
+                <img src="{{ url_for('static', filename='images/agricultora2.jpg') }}" alt="Agricultor feliz colhendo alimentos frescos" class="responsive-image">
+            </div>
+            <p>
+                Com o Raízes Conectadas, você, agricultor familiar, ganha um novo canal direto para vender sua produção para escolas, eliminando intermediários e garantindo um preço justo pelo seu trabalho.
+                Conecte-se a uma rede que valoriza seus alimentos orgânicos, sazonais e fresquinhos!
+            </p>
+
+            <h3>Como se Cadastrar e Vender sua Produção:</h3>
+            <p>Preencha o formulário abaixo com seus dados e informações sobre o que você cultiva. Nossa equipe entrará em contato para mais detalhes.</p>
+
+            <form method="POST" class="form-section">
+                <div class="form-group">
+                    <label for="nome_agricultor">Seu Nome Completo:</label>
+                    <input type="text" id="nome_agricultor" name="nome_agricultor" class="form-control" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_agricultor">Seu Melhor Email:</label>
+                    <input type="email" id="email_agricultor" name="email_agricultor" class="form-control" placeholder="seu.email@exemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone_agricultor">Seu Telefone:</label>
+                    <input type="tel" id="telefone_agricultor" name="telefone_agricultor" class="form-control" placeholder="(XX) XXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="producao_agricultor">O que você produz?</label>
+                    <input type="text" id="producao_agricultor" name="producao_agricultor" class="form-control" placeholder="Ex: Hortaliças, frutas, legumes, ovos caipiras..." required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem_agricultor">Alguma mensagem extra?</label>
+                    <textarea id="mensagem_agricultor" name="mensagem_agricultor" class="form-control" rows="5" placeholder="Conte-nos um pouco mais sobre sua produção e sua experiência..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button">Enviar Cadastro da Minha Produção!</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Raízes Conectadas - Um projeto do CETI Lucas Meireles Alves. Todos os direitos de quem plantou!</p>
+            <p>Conectando o campo à mesa, nutrindo o futuro do Brasil.</p>
+            <p>
+                <a href="{{ url_for('sobre') }}">Sobre o Projeto</a>
+                |
+                <a href="{{ url_for('contato') }}">Fale Conosco</a>
+            </p>
+            <p>
+                <a href="{{ url_for('index') }}" class="button">Voltar pra Página Inicial</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

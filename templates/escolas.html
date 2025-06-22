@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes Conectadas - Sua Escola Conectada!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header-escolas">
+        <h1>Raízes Conectadas: Merenda Escolar de Verdade! bota verdade nisso</h1>
+        <p>Conectando sua escola a alimentos frescos, nutritivos e direto da agricultura local. Qualidade garantida para nossos pequenos!</p>
+    </header>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <section class="section">
+            <h2>Benefícios Exclusivos que Sua Escola Vai Amar!</h2>
+            <div class="image-placeholder">
+                <img src="{{ url_for('static', filename='images/criancas_merenda.jpg') }}" alt="Crianças saudáveis e felizes comendo merenda escolar fresca" class="responsive-image">
+            </div>
+            <p>
+                Com o Raízes Conectadas, sua escola garante acesso facilitado a uma variedade de alimentos frescos e de alta qualidade, produzidos por agricultores familiares da região.
+                Isso significa uma merenda mais saudável, saborosa e que apoia a economia local.
+            </p>
+
+            <h3>Como Cadastrar sua Escola:</h3>
+            <p>Preencha o formulário abaixo com as informações da sua instituição. Em breve, nossa equipe entrará em contato para iniciar essa parceria deliciosa e nutritiva!</p>
+
+            <form method="POST" class="form-section">
+                <div class="form-group">
+                    <label for="nome_escola">Nome Completo da Escola:</label>
+                    <input type="text" id="nome_escola" name="nome_escola" class="form-control" placeholder="Nome completo da escola" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco_escola">Endereço da Escola:</label>
+                    <input type="text" id="endereco_escola" name="endereco_escola" class="form-control" placeholder="Rua, número, bairro" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_escola">Email da Escola:</label>
+                    <input type="email" id="email_escola" name="email_escola" class="form-control" placeholder="email.daescola@exemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefone_escola">Telefone da Escola:</label>
+                    <input type="tel" id="telefone_escola" name="telefone_escola" class="form-control" placeholder="(XX) XXXX-XXXX" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem_escola">Alguma mensagem extra?</label>
+                    <textarea id="mensagem_escola" name="mensagem_escola" class="form-control" rows="5" placeholder="Conte-nos sobre o interesse da sua escola em alimentos locais..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button">Enviar Cadastro da Minha Escola!</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Raízes Conectadas - Um projeto feito com carinho pelo CETI Lucas Meireles Alves.</p>
+            <p>Conectando o campo à mesa, nutrindo o futuro. Simples assim!</p>
+            <p>
+                <a href="{{ url_for('sobre') }}">Sobre o Projeto</a>
+                |
+                <a href="{{ url_for('contato') }}">Fale Conosco</a>
+            </p>
+            <p>
+                <a href="{{ url_for('index') }}" class="button">Voltar pra Página Inicial</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

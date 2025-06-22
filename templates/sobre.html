@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto - Raízes Conectadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header-sobre">
+        <h1>Sobre o Projeto Raízes Conectadas</h1>
+        <p>Conheça nossa missão e visão!</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Nossa História e Propósito</h2>
+            <p>O projeto "Raízes Conectadas" nasceu da necessidade de aproximar a produção da agricultura familiar das escolas da nossa região.</p>
+            <p>Acreditamos que, ao encurtar essa distância, fortalecemos a economia local, garantimos alimentos frescos e de qualidade para a merenda escolar, e promovemos uma alimentação mais saudável e consciente para as futuras gerações.</p>
+            <p>Este é um projeto desenvolvido por alunos do 2º ano de Desenvolvimento de Sistemas do CETI Lucas Meireles Alves, buscando aplicar conhecimentos em programação e gestão de projetos para resolver um problema real da nossa comunidade.</p>
+            <p>Nosso objetivo é criar uma ponte digital eficiente e acessível que beneficie tanto os produtores rurais quanto as instituições de ensino, gerando um ciclo virtuoso de desenvolvimento local e sustentabilidade.</p>
+        </section>
+        <div class="call-to-action">
+            <a href="{{ url_for('index') }}" class="button">Voltar à Página Inicial</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles Alves. Um futuro cultivado juntos!</p>
+        <p>
+            <a href="{{ url_for('sobre') }}">Sobre</a>
+            |
+            <a href="{{ url_for('contato') }}">Contato</a>
+        </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

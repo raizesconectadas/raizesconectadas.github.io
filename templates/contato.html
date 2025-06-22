@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Raízes Conectadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header-contato">
+        <h1>Fale Conosco - Raízes Conectadas</h1>
+        <p>Estamos aqui para ajudar e ouvir você!</p>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Entre em Contato</h2>
+            <p>Se você tem dúvidas, sugestões ou quer saber mais sobre o projeto Raízes Conectadas, preencha o formulário abaixo ou utilize nossos canais de contato.</p>
+
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contato@raizesconectadas.com.br">raizesconectadas@gmail.com.br</a></p>
+                <p><i class="fas fa-phone"></i> Telefone: (XX) XXXX-XXXX (Para informações gerais)</p>
+                <p><i class="fas fa-map-marker-alt"></i> Endereço: CETI Lucas Meireles Alves, [Seu Endereço da Escola/Instituição]</p>
+            </div>
+
+            <p>
+                Por enquanto, envie-nos um e-mail direto para qualquer dúvida ou para iniciar uma parceria.
+            </p>
+        </section>
+        <div class="call-to-action">
+            <a href="{{ url_for('index') }}" class="button">Voltar à Página Inicial</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles Alves. Conecte-se conosco!</p>
+        <p>
+            <a href="{{ url_for('sobre') }}">Sobre</a>
+            |
+            <a href="{{ url_for('contato') }}">Contato</a>
+        </p>
+    </footer>
+</body>
+</html>

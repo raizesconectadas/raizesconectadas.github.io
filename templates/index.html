@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes Conectadas - Conectando o campo à mesa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="header-index">
+
+          <div class="image-placeholder">
+                <img src="{{ url_for('static', filename='images/LOGO_TIPO_RAIZES_CONECTADAS-removebg-preview.png') }}" alt="tag assemconect" class="responsive-image"">
+
+        <p>Uma plataforma digital para fortalecer a agricultura familiar e nutrir nossas escolas com alimentos frescos e locais. #FeitoComCarinho</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Descubra o Poder da Conexão Local</h2>
+            <div class="image-placeholder">Imagem de uma cesta de alimentos frescos</div>
+            <p class="lead">O Raízes Conectadas é mais do que uma plataforma; é um movimento para valorizar os produtos da nossa terra e garantir uma merenda escolar de qualidade para nossas crianças.</p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Para Escolas</h3>
+                    <p>Acesso fácil a alimentos frescos e saudáveis, direto dos produtores locais. Mais qualidade e apoio à comunidade.</p>
+                    <ul>
+                        <li><i class="fas fa-handshake"></i>Parceria direta com agricultores</li>
+                        <li><i class="fas fa-apple-alt"></i> Alimentos frescos e nutritivos</li>
+                        <li><i class="fas fa-chart-line"></i> Apoio à economia local</li>
+                        <li><i class="fas fa-child"></i> Merenda escolar de alta qualidade</li>
+                    </ul>
+                    <a href="{{ url_for('escolas') }}" class="button">Saiba Mais para Escolas</a>
+                </div>
+                <div class="feature-item">
+                    <h3>Para Produtores</h3>
+                    <p>Novo mercado para seus produtos, valorização do seu trabalho e fortalecimento da agricultura familiar na região.</p>
+                    <ul>
+                        <li><i class="fas fa-tractor"></i> Novo canal de vendas</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Valorização local (do seu trabalho!)</li>
+                        <li><i class="fas fa-users"></i> Parcerias com escolas</li>
+                        <li><i class="fas fa-coins"></i> Fortalecimento econômico da região</li>
+                    </ul>
+                    <a href="{{ url_for('agricultores') }}" class="button">Saiba Mais para Produtores</a>
+                </div>
+            </div>
+
+            <div class="call-to-action">
+                <h3>Pronto para Conectar? Não perca tempo!</h3>
+                <a href="{{ url_for('escolas') }}" class="button">Sou Escola</a>
+                <a href="{{ url_for('agricultores') }}" class="button">Sou Produtor</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Raízes Conectadas - CETI Lucas Meireles. Todos os direitos reservados.</p>
+        <p>Conectando o campo à mesa, nutrindo o futuro. E a gente ama o que faz!</p>
+        <p>
+            <a href="{{ url_for('sobre') }}">Sobre o Projeto</a>
+            |
+            <a href="{{ url_for('contato') }}">Entre em Contato</a>
+        </p>
+    </footer>
+</body>
+</html>
