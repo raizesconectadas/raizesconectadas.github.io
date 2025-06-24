@@ -102,7 +102,7 @@ h2 {
     font-weight: bold; /* Texto em negrito */
     border: none; /* Sem borda */
     cursor: pointer; /* Muda o cursor para "mãozinha" */
-    font-size: 18px; /* Tamanho da letra do botão */
+    font-size: 19px; /* Tamanho da letra do botão */
     margin-top: 15px; /* Espaço em cima do botão */
 }
 
